@@ -1,32 +1,36 @@
 const dodger = document.getElementById('dodger');
+dodger.style.backgroundColor = "#FF69B4";
 
 function moveDodgerLeft() {
-    const leftNumbers = dodger.style.left.replace("px", "");
-    const left = parseInt(leftNumbers, 10);
-  
-    if (left > 0) {
-      dodger.style.left = `${left - 1}px`;
-    }
+  const leftNumbers = dodger.style.left.replace("px", "");
+  const left = parseInt(leftNumbers, 10);
+
+  if (left > 0){
+    dodger.style.left = `${left - 6}px`;
+  };
 }; 
 
 function moveDodgerRight() {
-    const leftNumbers = dodger.style.left.replace("px", "");
-    const left = parseInt(leftNumbers, 10);
-  
-    if (left > 0) {
-      dodger.style.left = `${left + 1}px`;
-    }
+  const rightNumbers = dodger.style.left.replace("px", "");
+  const right = parseInt(rightNumbers, 10);
+
+  if (right < 360){
+    dodger.style.left = `${right + 6}px`;
+  }
 };
 
-document.addEventListener("keydown", function(e) {
-    if (e.key === "ArrowLeft") {
-      moveDodgerLeft();
-    }
-    else if (e.key === "ArrowRight") {
-      moveDodgerRight();
-    }
-}); 
+document.addEventListener("keydown", function (e) {
+  if(e.key === "ArrowLeft"){
+    moveDodgerLeft();
+  } else if (e.key === "ArrowRight"){
+    moveDodgerRight();
+  }
+});
 
+const resetButton = document.getElementById('reset');
 
-
-  
+resetButton.addEventListener('click', function(e) {
+  dodger.style = "bottom: 0px; left: 180px;";
+  dodger.style.backgroundColor = "#FF69B4";
+  alert("You clicked the reset button!");
+});

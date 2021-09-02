@@ -53,3 +53,9 @@
   position: absolute;
   width: 9px;
 }
+
+#reset{
+  position: absolute;
+  left: 175px;
+  top: 200px;
+}
